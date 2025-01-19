@@ -1,0 +1,148 @@
+-- Таблица паромов
+INSERT INTO Ferries (name, car_capacity, cargo_capacity) VALUES
+('Капитан Джек', 15, 5),
+('Морской Волк', 10, 10),
+('Океанский Рейнджер', 10, 10),
+('Атлант', 5, 15),
+('Адмирал Крузенштерн', 4, 20),
+('Полярная Звезда', 5, 5),
+('Солнечный Ветер', 20, 80),
+('Арктический Викинг', 10, 15),
+('Морской Лев', 30, 10),
+('Горизонт', 20, 20);
+
+-- Таблица типов автомобилей
+INSERT INTO vehicle_types (name, size) VALUES
+('автомобиль', 1),
+('грузовик', 2),
+('тягач', 3),
+('контейнер', 1);
+
+-- Таблица пунктов назначения (порты со всего мира)
+INSERT INTO Destinations (name) VALUES
+('Шанхай'),
+('Сингапур'),
+('Роттердам'),
+('Пусан'),
+('Дубай'),
+('Гамбург'),
+('Лос-Анджелес'),
+('Токио'),
+('Нью-Йорк'),
+('Гонконг');
+
+-- Таблица рейсов
+INSERT INTO Trips (destination_id, ferry_id) VALUES
+(1, 1), -- Шанхай -> Капитан Джек
+(3, 2), -- Роттердам -> Морской Волк
+(3, 3), -- Роттердам -> Океанский Рейнджер
+(4, 4), -- Пусан -> Атлант
+(5, 5), -- Дубай -> Адмирал Крузенштерн
+(6, 6), -- Гамбург -> Полярная Звезда
+(7, 7), -- Лос-Анджелес -> Солнечный Ветер
+(8, 8), -- Токио -> Арктический Викинг
+(9, 9), -- Нью-Йорк -> Морской Лев
+(10, 10); -- Гонконг -> Горизонт
+
+-- Таблица автомобилей и грузов (True для контейнеров и False для автомобилей)
+INSERT INTO Cargos (name, type_id, is_cargo) VALUES
+('Lada X738KB', 1, FALSE),
+('ZIL R512TS', 2, FALSE),
+('KamAZ F905DL', 3, FALSE),
+('Fiat Ducato W847LM', 2, FALSE),
+('Renault A639PQ', 1, FALSE),
+
+('Toyota Land Cruiser Q416YU', 1, FALSE),
+('MAZ P724ZR', 2, FALSE),
+('Mercedes-Benz Actros G251TH', 3, FALSE),
+('Kia Rio V849EK', 1, FALSE),
+('Volkswagen Multivan R367OP', 2, FALSE),
+
+('Ford Ranger L192QT', 2, FALSE),
+('Volvo FH K675CY', 3, FALSE),
+('Hyundai Solaris D924JA', 1, FALSE),
+('Opel Vivaro H528LC', 2, FALSE),
+('Iveco Stralis E173TX', 3, FALSE),
+
+('Peugeot 308 M397WY', 1, FALSE),
+('Isuzu T491QR', 2, FALSE),
+('DAF XF J183UV', 3, FALSE),
+('Citroen Jumper F715ZR', 2, FALSE),
+('Honda Accord L829GS', 1, FALSE),
+
+('Kenworth P013KH', 3, FALSE),
+('Subaru Impreza A742EM', 1, FALSE),
+('Renault Master Y847BK', 2, FALSE),
+('Freightliner T981RP', 2, FALSE),
+('BMW 5 Series B539TN', 1, FALSE),
+
+('Контейнер №001', 4, TRUE),
+('Контейнер №002', 4, TRUE),
+('Контейнер №003', 4, TRUE),
+('Контейнер №004', 4, TRUE),
+('Контейнер №005', 4, TRUE),
+('Контейнер №006', 4, TRUE),
+('Контейнер №007', 4, TRUE),
+('Контейнер №008', 4, TRUE),
+('Контейнер №009', 4, TRUE),
+('Контейнер №010', 4, TRUE),
+('Контейнер №011', 4, TRUE),
+('Контейнер №012', 4, TRUE),
+('Контейнер №013', 4, TRUE),
+('Контейнер №014', 4, TRUE);
+
+-- Элементы рейсов (грузы и автомобили)
+-- Рейс 1: Шанхай -> Капитан Джек
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(1, 1),
+(1, 2),
+(1, 4),
+(1, 5),
+(1, 16),
+(1, 17),
+(1, 18);
+
+-- Рейс 2: Сингапур -> Морской Волк
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9),
+(2, 36),
+(2, 37),
+(2, 38),
+(2, 39),
+(2, 26);
+
+-- Рейс 3: Роттердам -> Океанский Рейнджер
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(3, 11),
+(3, 12),
+(3, 14),
+(3, 15),
+(3, 27),
+(3, 28),
+(3, 29),
+(3, 30),
+(3, 31);
+
+-- Рейс 4: Пусан -> Атлант
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(4, 20),
+(4, 32),
+(4, 33),
+(4, 34),
+(4, 35);
+
+-- Рейс 5: Дубай -> Адмирал Крузенштерн
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(5, 21),
+(5, 22);
+
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(6, 19),
+(6, 24);
+
+INSERT INTO Trip_Items (trip_id, cargo_id) VALUES
+(7, 23),
+(7, 25);
